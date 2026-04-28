@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Light Mode (Default - Chocolate & White) */
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #f5f0e8 0%, #ffffff 100%);
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        header {
+            background: linear-gradient(135deg, #5C3317 0%, #3B1E08 100%);
+            padding: 25px 20px;
+            color: #F5E6D3;
+            text-align: left;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.3s ease;
+        }
+
+        header img {
+            filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.3));
+        }
+
+        header b i {
+            font-size: 24px;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        nav {
+            background: #F5E6D3;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav button {
+            background: linear-gradient(135deg, #6B3A1F 0%, #4A2610 100%);
+            border: none;
+            padding: 10px 25px;
+            margin: 0 5px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        nav button:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #7E4525 0%, #5C2E12 100%);
+            box-shadow: 0 5px 15px rgba(92,46,18,0.4);
+        }
+
+        nav button a {
+            color: #F5E6D3;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        h2 {
+            color: #5C3317;
+            font-size: 36px;
+            margin-top: 40px;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #5C3317, #C4A27A);
+            border-radius: 2px;
+        }
+
+        h3 {
+            color: #7E5A3C;
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-weight: normal;
+        }
+
+        .settings-box {
+            background: white;
+            max-width: 550px;
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(92,46,18,0.15);
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .setting-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+            border-bottom: 1px solid #F0E5D8;
+        }
+
+        .setting-item:last-child {
+            border-bottom: none;
+        }
+
+        .setting-item label {
+            font-weight: bold;
+            color: #5C3317;
+            font-size: 16px;
+        }
+
+        .setting-item p {
+            color: #8B7355;
+            font-size: 13px;
+            margin: 5px 0 0 0;
+        }
+
+        select {
+            padding: 10px 15px;
+            border: 2px solid #E8D5C0;
+            border-radius: 12px;
+            font-size: 14px;
+            font-family: inherit;
+            background: #FDF9F4;
+            color: #3E2720;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #6B3A1F;
+            box-shadow: 0 0 0 3px rgba(107,58,31,0.1);
+        }
+
+        /* Toggle Switch - Chocolate themed */
+        .toggle {
+            width: 55px;
+            height: 28px;
+            background: #E8D5C0;
+            border-radius: 30px;
+            cursor: pointer;
+            position: relative;
+            transition: background 0.3s;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .toggle.dark {
+            background: #6B3A1F;
+        }
+
+        .toggle::after {
+            content: '☀️';
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: left 0.3s, transform 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .toggle.dark::after {
+            content: '🌙';
+            left: 29px;
+        }
+
+        .save-btn {
+            background: linear-gradient(135deg, #6B3A1F 0%, #4A2610 100%);
+            color: #F5E6D3;
+            border: none;
+            padding: 14px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 40px;
+            cursor: pointer;
+            margin-top: 25px;
+            width: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .save-btn:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #7E4525 0%, #5C2E12 100%);
+            box-shadow: 0 6px 16px rgba(92,46,18,0.4);
+        }
+
+        .message {
+            text-align: center;
+            color: #6B3A1F;
+            font-weight: bold;
+            margin-top: 15px;
+            padding: 10px;
+            background: #F5E6D3;
+            border-radius: 30px;
+            font-size: 14px;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #3B1E08 0%, #241206 100%);
+            padding: 25px;
+            color: #E8D5C0;
+            margin-top: 50px;
+            transition: all 0.3s ease;
+        }
+
+        footer p {
+            color: #E8D5C0;
+            margin: 8px 0;
+            font-size: 14px;
+        }
+
+        /* ========== DARK MODE STYLES ========== */
+        body.dark {
+            background: linear-gradient(135deg, #2A1A0E 0%, #1A0F08 100%);
+        }
+
+        body.dark header {
+            background: linear-gradient(135deg, #3B1E08 0%, #1F0F05 100%);
+        }
+
+        body.dark nav {
+            background: #2A1A0E;
+        }
+
+        body.dark .settings-box {
+            background: #3D2A1C;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        body.dark .setting-item {
+            border-bottom-color: #5A3A28;
+        }
+
+        body.dark .setting-item label {
+            color: #E8D5C0;
+        }
+
+        body.dark .setting-item p {
+            color: #C4A27A;
+        }
+
+        body.dark select {
+            background: #2A1A0E;
+            border-color: #5A3A28;
+            color: #E8D5C0;
+        }
+
+        body.dark h2 {
+            color: #E8D5C0;
+        }
+
+        body.dark h2:after {
+            background: linear-gradient(90deg, #E8D5C0, #C4A27A);
+        }
+
+        body.dark h3 {
+            color: #C4A27A;
+        }
+
+        body.dark .message {
+            background: #2A1A0E;
+            color: #C4A27A;
+        }
+
+        body.dark footer {
+            background: linear-gradient(135deg, #1F0F05 0%, #0F0803 100%);
+        }
+    </style>
+</head>
+<body>
+    <header>
+         <img src="new.png" width="100" height="98" alt="Logo"> 
+         <b><i>KELLY CURRENCY WEBSITE</i></b>
+    </header>
+    <nav>
+        <button><a href="home.html">Home</a></button>
+        <button><a href="converter.html">Full Converter</a></button>
+        <button><a href="details.html"> Currency Details</a></button>
+        <button><a href="history.html"> History</a></button>
+        <button><a href="settings.html"> Settings</a></button>
+    </nav>
+
+    <h2> Settings</h2>
+    <h3>Customize Your Experience</h3>
+
+    <div class="settings-box">
+        <div class="setting-item">
+            <div>
+                <label id="theme-label">Light Mode</label>
+                <p>Switch between light and dark appearance</p>
+            </div>
+            <div class="toggle" id="theme-toggle" onclick="toggleTheme()"></div>
+        </div>
+
+        <div class="setting-item">
+            <div>
+                <label> Default Currency</label>
+                <p>Your preferred currency for conversion</p>
+            </div>
+            <select id="default-currency">
+                <option value="USD">🇺🇸 USD - US Dollar</option>
+                <option value="EUR">🇪🇺 EUR - Euro</option>
+                <option value="GBP">🇬🇧 GBP - British Pound</option>
+                <option value="RWF">🇷🇼 RWF - Rwandan Franc</option>
+            </select>
+        </div>
+
+        <div class="setting-item">
+            <div>
+                <label> Language</label>
+                <p>Choose your language</p>
+            </div>
+            <select id="language-select">
+                <option value="en">🇬🇧 English</option>
+                <option value="fr" disabled>🇫🇷 French (Coming Soon)</option>
+                <option value="rw" disabled>🇷🇼 Kinyarwanda (Coming Soon)</option>
+            </select>
+        </div>
+
+        <button class="save-btn" onclick="saveSettings()"> Save Settings</button>
+        <p id="save-message" class="message"></p>
+    </div>
+
+    <script>
+        // Load saved settings on page load
+        function loadSettings() {
+            let theme = localStorage.getItem("theme") || "light";
+            let defaultCurrency = localStorage.getItem("defaultCurrency") || "RWF";
+            let toggle = document.getElementById("theme-toggle");
+            let label = document.getElementById("theme-label");
+
+            // Apply theme to body
+            if (theme === "dark") {
+                document.body.classList.add("dark");
+                toggle.classList.add("dark");
+                label.innerHTML = " Dark Mode";
+            } else {
+                document.body.classList.remove("dark");
+                toggle.classList.remove("dark");
+                label.innerHTML = " Light Mode";
+            }
+
+            // Set default currency
+            document.getElementById("default-currency").value = defaultCurrency;
+        }
+
+        // Toggle between light and dark mode
+        function toggleTheme() {
+            let toggle = document.getElementById("theme-toggle");
+            let label = document.getElementById("theme-label");
+            let body = document.body;
+
+            if (toggle.classList.contains("dark")) {
+                toggle.classList.remove("dark");
+                label.innerHTML = " Light Mode";
+                body.classList.remove("dark");
+            } else {
+                toggle.classList.add("dark");
+                label.innerHTML = " Dark Mode";
+                body.classList.add("dark");
+            }
+        }
+
+        // Save all settings
+        function saveSettings() {
+            let toggle = document.getElementById("theme-toggle");
+            let theme = toggle.classList.contains("dark") ? "dark" : "light";
+            let defaultCurrency = document.getElementById("default-currency").value;
+            let language = document.getElementById("language-select").value;
+
+            localStorage.setItem("theme", theme);
+            localStorage.setItem("defaultCurrency", defaultCurrency);
+            localStorage.setItem("language", language);
+
+            let messageBox = document.getElementById("save-message");
+            messageBox.textContent = " Settings saved successfully!";
+
+            setTimeout(function() {
+                messageBox.textContent = "";
+            }, 3000);
+        }
+
+        // Load settings when page opens
+        loadSettings();
+    </script>
+
+    <footer>
+        <p> name: Kelly currency exchange</p>
+        <p>email: kellycurrencyexchangecenter@gmail.com</p>
+        <p>© 2025 kelly currency exchange center</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karongi Clinic</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+body{
+    background:#e9e9e9;
+}
+.container{
+    display:flex;
+    height:100vh;
+}
+
+/* Sidebar */
+.sidebar{
+    width:230px;
+    background:#134a80;
+    color:white;
+    padding:20px;
+}
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:40px;
+}
+.logo-circle{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:#3f72ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+}
+.logo h2{
+    font-size:24px;
+}
+.menu{
+    list-style:none;
+}
+.menu li{
+    padding:18px 10px;
+    font-size:30px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    cursor:pointer;
+}
+.menu span{
+    font-size:16px;
+}
+
+/* Main */
+.main{
+    flex:1;
+    padding:20px 30px;
+}
+.top{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:20px;
+}
+.top h1{
+    font-size:38px;
+}
+.top p{
+    color:#666;
+    margin-top:8px;
+}
+.time{
+    text-align:right;
+    font-size:18px;
+}
+.time b{
+    display:block;
+    margin-top:5px;
+    font-size:20px;
+}
+
+/* Cards */
+.cards{
+    display:flex;
+    gap:15px;
+    margin-bottom:25px;
+}
+.card{
+    flex:1;
+    border-radius:18px;
+    padding:18px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    border:2px solid #ccc;
+}
+.card i{
+    font-size:35px;
+}
+.card .text{
+    flex:1;
+}
+.card h3{
+    font-size:16px;
+    font-weight:normal;
+}
+.card p{
+    font-size:40px;
+    margin-top:5px;
+}
+
+.blue{background:#dce8f5;border-color:#88b4e9;}
+.green{background:#dcead3;border-color:#9fcb88;}
+.orange{background:#f6e6d8;border-color:#f0a057;}
+.gray{background:#efefef;border-color:#bbb;}
+
+/* Bottom */
+.bottom{
+    display:flex;
+    gap:20px;
+}
+
+/* Table */
+.table-box{
+    flex:2;
+    background:white;
+    border:1px solid #ccc;
+    padding:15px;
+}
+.table-box h2{
+    font-size:38px;
+    margin-bottom:10px;
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+th,td{
+    padding:12px;
+    border-bottom:1px solid #ddd;
+    text-align:left;
+    font-size:18px;
+}
+.status{
+    padding:5px 10px;
+    border-radius:10px;
+    font-size:14px;
+}
+.done{
+    background:#d8f0da;
+    color:#0a8b2d;
+}
+.wait{
+    background:#f9ecd7;
+    color:#cc8400;
+}
+
+/* Form */
+.form-box{
+    flex:1;
+    background:#f8f8f8;
+    border:2px solid #ddd;
+    border-radius:50px;
+    padding:35px;
+}
+.form-box h2{
+    font-size:38px;
+    margin-bottom:25px;
+}
+label{
+    display:block;
+    font-size:18px;
+    margin:12px 0 8px;
+}
+input{
+    width:100%;
+    padding:12px;
+    border:2px solid #ddd;
+    font-size:16px;
+}
+.buttons{
+    margin-top:35px;
+    display:flex;
+    justify-content:space-between;
+}
+button{
+    width:46%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    font-size:18px;
+    cursor:pointer;
+}
+.save{
+    background:#006ecf;
+    color:white;
+}
+.clear{
+    background:#ddd;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <div class="logo-circle"><i class="fa-solid fa-plus"></i></div>
+            <h2>KARONGI CLINIC</h2>
+        </div>
+
+        <ul class="menu">
+            <li><i class="fa-solid fa-house"></i><span>Dashboard</span></li>
+            <li><i class="fa-solid fa-user"></i><span>Patients</span></li>
+            <li><i class="fa-solid fa-calendar"></i><span>Appointments</span></li>
+            <li><i class="fa-solid fa-chart-column"></i><span>Reports</span></li>
+            <li><i class="fa-solid fa-gear"></i><span>Settings</span></li>
+        </ul>
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+
+        <!-- Top -->
+        <div class="top">
+            <div>
+                <h1>Hello, Receptionist</h1>
+                <p>Welcome to KARONGI clinic</p>
+            </div>
+
+            <div class="time">
+                10:30 am
+                <b>22 May 2026</b>
+            </div>
+        </div>
+
+        <!-- Cards -->
+        <div class="cards">
+            <div class="card blue">
+                <i class="fa-solid fa-users"></i>
+                <div class="text">
+                    <h3>Total Patients</h3>
+                    <p>25</p>
+                </div>
+            </div>
+
+            <div class="card green">
+                <i class="fa-solid fa-check"></i>
+                <div class="text">
+                    <h3>Checked-in</h3>
+                    <p>20</p>
+                </div>
+            </div>
+
+            <div class="card orange">
+                <i class="fa-regular fa-clock"></i>
+                <div class="text">
+                    <h3>Waiting</h3>
+                    <p>8</p>
+                </div>
+            </div>
+
+            <div class="card gray">
+                <i class="fa-solid fa-clipboard-check"></i>
+                <div class="text">
+                    <h3>Completed</h3>
+                    <p>5</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom -->
+        <div class="bottom">
+
+            <!-- Table -->
+            <div class="table-box">
+                <h2>Recent check-in</h2>
+
+                <table>
+                    <tr>
+                        <th>#</th>
+                        <th>Patient name</th>
+                        <th>time</th>
+                        <th>Status</th>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>Eric</td>
+                        <td>8:00 pm</td>
+                        <td><span class="status done">Checked-in</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>Kelly</td>
+                        <td>8:02 pm</td>
+                        <td><span class="status done">Checked-in</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>Esai</td>
+                        <td>9:00 pm</td>
+                        <td><span class="status wait">Waiting</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>4</td>
+                        <td>Bright</td>
+                        <td>9:50 pm</td>
+                        <td><span class="status wait">Waiting</span></td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Form -->
+            <div class="form-box">
+                <h2>New Check-in</h2>
+
+                <label>First name:</label>
+                <input type="text" placeholder="Enter first name">
+
+                <label>Last name:</label>
+                <input type="text" placeholder="Enter last name">
+
+                <label>Age:</label>
+                <input type="text" placeholder="Enter age">
+
+                <div class="buttons">
+                    <button class="save">Save</button>
+                    <button class="clear">Clear</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
